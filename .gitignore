@@ -1,3 +1,6 @@
 # C or Rust executables
 *.out
 *.exe
+
+# Rust debug files, for Windows degenrates
+*.pdb
