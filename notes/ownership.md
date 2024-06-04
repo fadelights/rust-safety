@@ -19,3 +19,16 @@ Then how is heap managed?
 - Variables can't be used after being moved -- only current owner can access
 - Collections, like `Vec`, `HashMap`, or `String` use boxes
 - Use `.clone` to create copy on heap
+
+## Aliasing and Mutation
+> Data can be aliased. Data can be mutated. But data cannot be both aliased and mutated.
+- Variables have 3 kinds of permissions inside the borrow checker:
+    - **Read:** can copy data
+    - **Write:** can mutate data
+    - **Own:** can move or drop data
+- These permissions don't exist at _run-time_ -- only _compile-time_
+- By default, variables have RO permissions, W if defined with `mut`
+- References can temporarily remove these permissions
+- Permissions are defined on _paths_
+- Permissions are lost at the end of a _path_'s lifetime
+- Each operation on a _path_ requires certain permissions. If they are not satisfied, the borrow checker will fail the program compilation
