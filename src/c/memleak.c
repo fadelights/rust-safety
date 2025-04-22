@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h> // imports `sleep` -- use <windows.h> on the Windows OS
+#include <unistd.h> // imports `sleep` -- use <windows.h> on Windows
 
 char* leak() {
     size_t size = 4L * 1024 * 1024 * 1024; // 4GB
